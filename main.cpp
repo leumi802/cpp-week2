@@ -6,8 +6,6 @@ string makeAnswer();
 
 int main() {
     string answer = makeAnswer();
-    cout << "Answer is " << answer << endl;
     game(answer);
-    cout << "You win!" << endl;
     return 0;
 }

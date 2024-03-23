@@ -8,15 +8,18 @@ using namespace std;
 
 string makeAnswer() {
     mt19937 gen(time(NULL));
-    uniform_int_distribution<int> dis(0, 999);
-    int number = dis(gen);
+    uniform_int_distribution<int> dis(0, 9);
+    int num1, num2, num3;
     string answer = "";
-    if (number < 10) {
-        answer = "00" + to_string(number);
-    } else if (number < 100) {
-        answer = "0" + to_string(number);
-    } else {
-        answer = to_string(number);
+    num1 = dis(gen);
+    num2 = num1;
+    num3 = num1;
+    while (num1 == num2) {
+        num2 = dis(gen);
     }
+    while (num3 == num1 || num3 == num2) {
+        num3 = dis(gen);
+    }
+    answer = to_string(num1) + to_string(num2) + to_string(num3);
     return answer;
 }
